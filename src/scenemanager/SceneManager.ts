@@ -26,8 +26,9 @@ class SceneManager {
 		this._currentScene = newScene;
 
 		this._main.innerHTML = "";
-		addHtml(this._currentScene.toInfo().htmlPath);
-		
+
+		enterScene(this._currentScene);
+
 		this._currentScene.toInfo().buttonElement.id = "selected-button";
 		
 		this._cssElement.href = this._currentScene.toInfo().cssPath;
@@ -52,11 +53,12 @@ class SceneManager {
 	};
 };
 
-async function addHtml(filePath: string) {
-    const resp = await fetch(filePath);
+async function enterScene(currentScene: Scene) {
+    const resp = await fetch(currentScene.toInfo().htmlPath);
     const html = await resp.text();
     const main = document.querySelector("main") as HTMLElement; 
 	main.innerHTML = html;
+	currentScene.enter();
 }
 
 export default SceneManager;
