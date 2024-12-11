@@ -6,9 +6,9 @@ type SceneInfo = {
 
 class Scene {
 
-	private _name: string;
-	private _author: string;
-	private _cssPath: string;
+	protected _name: string;
+	protected _author: string;
+	protected _cssPath: string;
 
 	constructor(name: string, author: string, cssPath: string) {
 		this._name = name;
@@ -16,12 +16,19 @@ class Scene {
 		this._cssPath = cssPath;
 	};
 
+	enter = () => {
+
+	};
+
+	exit = () => {
+
+	}
+
 	toInfo = ():SceneInfo => ({
 			name: this._name,
 			author: this._author,
 			cssPath: this._cssPath,
 	});
-
 };
 
 export { Scene };
