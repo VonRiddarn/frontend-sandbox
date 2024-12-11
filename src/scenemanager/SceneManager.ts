@@ -18,7 +18,7 @@ class SceneManager {
 	changeScene = (newScene: Scene) => {
 		if(newScene === this._currentScene)
 			return;
-		
+
 		if(this._currentScene != null)
 		{
 			this._currentScene.exit();
@@ -59,8 +59,8 @@ async function enterScene(currentScene: Scene) {
     const resp = await fetch(currentScene.toInfo().htmlPath);
     const html = await resp.text();
     const main = document.querySelector("main") as HTMLElement; 
-	main.innerHTML = html;
-	currentScene.enter();
+	main.innerHTML = await html;
+	await currentScene.enter();
 }
 
 export default SceneManager;
