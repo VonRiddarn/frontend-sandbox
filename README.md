@@ -24,10 +24,10 @@ Breakdown:
 Admittedly, not many. Let loose your inner creative freak! <br/>
 But... Adhere to these at least.<br/>
 
-* Do not include vile language - keep it pegi 13 / 16
-* Do not create modules outside of the dedicated "src/modules" folder.
-* Do not override anything other than main in your modules custom css.
-* Do not make changes in other peoples modules unless explicit permission exists.
+* Do not create scenes you wouldn't put on your portfolio - keep it pegi 13.
+* Do not create scenes outside of the dedicated "src/modules" folder.
+* Do not override anything other than main in your scenes custom css.
+* Do not make changes in other peoples scenes unless explicit permission exists.
 * Do not change the default css file.
 * Do not change the tsconfig file.
 
