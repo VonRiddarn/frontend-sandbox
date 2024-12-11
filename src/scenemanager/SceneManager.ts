@@ -1,6 +1,8 @@
 import { Scene } from "./Scene";
 import sceneRenderer from "./SceneRenderer";
 
+let isLoading = false;
+
 class SceneManager {
 
 	private _scenes: Scene[] = []; 
@@ -16,8 +18,16 @@ class SceneManager {
 	}
 
 	changeScene = (newScene: Scene) => {
+
 		if(newScene === this._currentScene)
 			return;
+		
+		if(isLoading)
+		{
+			console.log("Action stopped, page is still loading!");
+			return;
+		}
+		isLoading = true;
 
 		if(this._currentScene != null)
 		{
@@ -56,6 +66,7 @@ class SceneManager {
 async function enterScene(currentScene: Scene) {
     const resp = await fetch(currentScene.toInfo().htmlPath);
     const html = await resp.text();
+	isLoading = await false;
     const main = document.querySelector("main") as HTMLElement; 
 	main.innerHTML = await html;
 	await currentScene.enter();
