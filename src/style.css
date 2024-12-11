@@ -1,3 +1,7 @@
+/*
+Pointer info: https://developer.mozilla.org/en-US/docs/Web/CSS/cursor
+*/
+
 :root {
 	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 	line-height: 1.5;
@@ -82,4 +86,5 @@ aside button:hover {
 	padding: 16px 8px;
 	font-weight: 600;
 	font-size: large;
+	cursor: pointer;
 }
