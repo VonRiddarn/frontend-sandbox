@@ -18,6 +18,7 @@ Pointer info: https://developer.mozilla.org/en-US/docs/Web/CSS/cursor
 	--aside-button: #5d82b9;
 	--aside-button-2: #5d82b9b0;
 	--aside-button-selected: #8fb2e6;
+	--aside-button-selected-2: #a37942;
 	--aside-scroll-thumb: #accdff;
 }
 
@@ -60,6 +61,11 @@ aside {
 
 	padding: 0;
 	background-color: var(--background-blue-m2);
+}
+
+#selected-button {
+	background-color: var(--aside-button-selected-2);
+	font-weight: 700;
 }
 
 aside button {
