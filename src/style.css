@@ -78,6 +78,8 @@ aside button {
 }
 
 aside button p {
+	margin-top: 4px;
+	text-align: left;
 	font-size: x-small;
 	font-weight: 500;
 }
