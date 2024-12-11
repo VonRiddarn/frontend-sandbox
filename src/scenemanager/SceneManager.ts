@@ -32,10 +32,7 @@ class SceneManager {
 		enterScene(this._currentScene);
 
 		this._currentScene.toInfo().buttonElement.id = "selected-button";
-		
 		this._cssElement.href = this._currentScene.toInfo().cssPath;
-
-		this._currentScene.enter();
 	};
 
 	initializeScenes = (scenes: Scene[]) => {
