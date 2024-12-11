@@ -26,6 +26,8 @@ class SceneManager {
 		this._currentScene = newScene;
 
 		this._main.innerHTML = "";
+		addHtml(this._currentScene.toInfo().htmlPath);
+		
 		this._currentScene.toInfo().buttonElement.id = "selected-button";
 		
 		this._cssElement.href = this._currentScene.toInfo().cssPath;
@@ -39,7 +41,7 @@ class SceneManager {
 		scenes.forEach((scene) => {
 			const btn = sceneRenderer.createButton(scene.toInfo());
 			scene.initialize(btn);
-			
+
 			btn.addEventListener('click', () => {
 				this.changeScene(scene);
 			});
@@ -49,5 +51,12 @@ class SceneManager {
 			this.changeScene(this._scenes[0]);
 	};
 };
+
+async function addHtml(filePath: string) {
+    const resp = await fetch(filePath);
+    const html = await resp.text();
+    const main = document.querySelector("main") as HTMLElement; 
+	main.innerHTML = html;
+}
 
 export default SceneManager;
