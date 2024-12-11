@@ -8,6 +8,8 @@ const sceneRenderer = Object.freeze({
 		let el = asideEl.appendChild(document.createElement("button"));
 		el.innerHTML = `${sceneInfo.name}`;
 		el.appendChild(document.createElement("p")).innerHTML = sceneInfo.author;
+
+		return el;
 	},
 });
 
