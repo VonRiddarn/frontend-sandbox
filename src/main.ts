@@ -1,6 +1,5 @@
 import { Scene } from "./scenemanager/Scene";
 import SceneManager from "./scenemanager/SceneManager";
-import { User, Admin } from "./scenemanager/User";
 
 console.log("Hello world!");
 
