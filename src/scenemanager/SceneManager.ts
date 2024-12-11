@@ -59,8 +59,8 @@ async function enterScene(currentScene: Scene) {
     const resp = await fetch(currentScene.toInfo().htmlPath);
     const html = await resp.text();
     const main = document.querySelector("main") as HTMLElement; 
-	main.innerHTML = await html;
-	await currentScene.enter();
+	main.innerHTML = html;
+	currentScene.enter();
 }
 
 export default SceneManager;
