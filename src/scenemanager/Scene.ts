@@ -21,8 +21,8 @@ class Scene {
 	constructor(name: string, author: string, cssPath: string, htmlPath: string) {
 		this._name = name;
 		this._author = author;
-		this._cssPath = cssPath;
-		this._htmlPath = htmlPath;
+		this._cssPath = `/src/scenes/${cssPath}`;
+		this._htmlPath = `/src/scenes/${htmlPath}`;
 		this._main = document.querySelector("main");
 	};
 
