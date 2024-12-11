@@ -10,6 +10,18 @@ class SceneManager {
 	constructor() {
 	};
 
+	getScene(name: string): Scene | null {
+		return this._scenes.find((scene) => scene.toInfo().name.toLowerCase() === name.toLowerCase()) || null;
+	}
+
+	changeScene = (newScene: Scene) => {
+		this._currentScene?.exit();
+
+		this._currentScene = newScene;
+
+		this._currentScene.enter();
+	};
+
 	initializeScenes = (scenes: Scene[]) => {
 		this._scenes = scenes;
 
