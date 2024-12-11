@@ -28,6 +28,9 @@ class SceneManager {
 		scenes.forEach((scene) => {
 			sceneRenderer.createButton(scene.toInfo());
 		});
+
+		if(this._scenes.length > 0)
+			this.changeScene(this._scenes[0]);
 	};
 };
 
