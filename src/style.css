@@ -77,6 +77,11 @@ aside button {
 	text-align: left;
 }
 
+aside button p {
+	font-size: x-small;
+	font-weight: 500;
+}
+
 aside button:nth-child(even) {
 	background-color: var(--aside-button-2);
 }
