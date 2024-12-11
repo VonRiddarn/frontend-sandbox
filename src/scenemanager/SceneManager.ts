@@ -16,7 +16,9 @@ class SceneManager {
 	}
 
 	changeScene = (newScene: Scene) => {
-
+		if(newScene === this._currentScene)
+			return;
+		
 		if(this._currentScene != null)
 		{
 			this._currentScene.exit();
