@@ -16,13 +16,13 @@ class Scene {
 	protected _cssPath: string;
 	protected _htmlPath: string;
 	protected _main: HTMLElement | null = null;
-	protected _buttonElement: HTMLElement = document.createElement("undefined-element");
+	protected _buttonElement: HTMLElement = document.createElement("undefined-element"); // Hack
 
-	constructor(name: string, author: string, cssPath: string, htmlPath: string) {
+	constructor(name: string, author: string, internalName: string) {
 		this._name = name;
 		this._author = author;
-		this._cssPath = `/src/scenes/${cssPath}`;
-		this._htmlPath = `/src/scenes/${htmlPath}`;
+		this._cssPath = `/src/scenes/${internalName}/${internalName}.css`;
+		this._htmlPath = `/src/scenes/${internalName}/${internalName}.html`;
 		this._main = document.querySelector("main");
 	};
 
