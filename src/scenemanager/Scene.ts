@@ -2,6 +2,7 @@ type SceneInfo = {
 	name: string;
 	author: string;
 	cssPath: string;
+	buttonElement: HTMLElement;
 };
 
 // TODO: If we get too many scenes to keep track of, maybe add filters to them like:
@@ -13,6 +14,7 @@ class Scene {
 	protected _author: string;
 	protected _cssPath: string;
 	protected _main: HTMLElement | null = null;
+	protected _buttonElement: HTMLElement = document.createElement("undefined-element");
 
 	constructor(name: string, author: string, cssPath: string) {
 		this._name = name;
@@ -20,6 +22,10 @@ class Scene {
 		this._cssPath = cssPath;
 		this._main = document.querySelector("main");
 	};
+
+	initialize = (buttonElement: HTMLElement) => {
+		this._buttonElement = buttonElement;
+	}
 
 	enter = () => {
 
@@ -33,6 +39,7 @@ class Scene {
 			name: this._name,
 			author: this._author,
 			cssPath: this._cssPath,
+			buttonElement: this._buttonElement
 	});
 };
 
