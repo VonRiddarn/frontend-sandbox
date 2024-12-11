@@ -3,9 +3,9 @@ import sceneRenderer from "./SceneRenderer";
 
 class SceneManager {
 
-
 	private _scenes: Scene[] = []; 
 	private _currentScene: Scene | null = null;
+	private _cssElement: HTMLLinkElement = document.getElementById("dynamic-css") as HTMLLinkElement;
 
 	constructor() {
 	};
@@ -18,6 +18,8 @@ class SceneManager {
 		this._currentScene?.exit();
 
 		this._currentScene = newScene;
+
+		this._cssElement.href = this._currentScene.toInfo().cssPath;
 
 		this._currentScene.enter();
 	};
