@@ -1,0 +1,85 @@
+:root {
+	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+	font-weight: 400;
+
+	color: #ffffff;
+	background-color: var(--background-blue-0);
+
+	/* VARIABLES */
+	--background-blue-0: #6981a7;
+	--background-blue-m1: #335381;
+	--background-blue-m2: #274672;
+
+	--aside-button: #5d82b9;
+	--aside-button-2: #5d82b9b0;
+	--aside-button-selected: #8fb2e6;
+	--aside-scroll-thumb: #accdff;
+}
+
+::-webkit-scrollbar {
+	width: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background: var(--background-blue-m2);
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--aside-scroll-thumb);
+	border-radius: 100vh;
+	border-width: 4px;
+}
+
+@supports (scrollbar-color: red blue) {
+	* {
+		scrollbar-color:  var(--aside-scroll-thumb) var(--background-blue-m2);
+		scrollbar-width: thin;
+	}
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	display: grid;
+	grid-template-columns: 300px auto;
+	grid-template-rows: 100vh;
+}
+
+aside {
+	display: flex;
+	flex-direction: column;
+	overflow-y: auto;
+
+	padding: 0;
+	background-color: var(--background-blue-m2);
+}
+
+aside button {
+	background-color: var(--aside-button);
+
+	margin: 0;
+	padding: 8px 8px;
+
+	width: 100%;
+	color: white;
+	border-width: 0px;
+
+	font-size: medium;
+	font-weight: 500;
+	text-align: left;
+}
+
+aside button:nth-child(even) {
+	background-color: var(--aside-button-2);
+}
+
+aside button:hover {
+	background-color: var(--aside-button-selected);
+	padding: 16px 8px;
+	font-weight: 600;
+	font-size: large;
+}
