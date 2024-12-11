@@ -6,7 +6,7 @@ class LandingPage extends Scene {
 		if(this._main == null)
 			return;
 
-		this._main.innerHTML = "Welcome, choose a scene!";
+		this._main.appendChild(document.createElement("p")).innerHTML = "Welcome, choose a scene!";
 	};
 
 };
