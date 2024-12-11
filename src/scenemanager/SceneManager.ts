@@ -55,12 +55,13 @@ class SceneManager {
 	};
 };
 
+// TODO: Make sure that the site cannot change before all async has been done - fr fr
 async function enterScene(currentScene: Scene) {
     const resp = await fetch(currentScene.toInfo().htmlPath);
     const html = await resp.text();
     const main = document.querySelector("main") as HTMLElement; 
-	main.innerHTML = html;
-	currentScene.enter();
+	main.innerHTML = await html;
+	await currentScene.enter();
 }
 
 export default SceneManager;
