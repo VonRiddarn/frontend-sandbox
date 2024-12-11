@@ -3,18 +3,6 @@ import SceneManager from "./scenemanager/SceneManager";
 
 console.log("Hello world!");
 
-let user = new User("John Doe", 42);
-
-let admin = new Admin("Peter Parker", 23);
-
-console.log(user.toString());
-
-console.log(user.invokePrivateMethod());
-
-console.log(user.invokeInheritedMethod());
-
-console.log(admin.invokeInheritedMethod());
-
 const scenemanager = new SceneManager();
 
 scenemanager.initializeScenes(
