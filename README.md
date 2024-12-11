@@ -12,6 +12,13 @@ Just create a module that inherits from the ModuleBehavior class and add a new i
 of that module to the statemachine initializer. <br/>
 From there the statemachine will handle adding your button to the sidebar and make the necessary state calls through your module.<br/>
 
+Breakdown:
+* Create a folder inside the modules folder for your resources.
+* Make a module class.
+* Add the module by adding it to the statemachine initializer in main.
+* Make a custom css file for your module.
+* Enjoy making great things!
+
 ## Rules 🛑
 
 Admittedly, not many. Let loose your inner creative freak! <br/>
