@@ -1,72 +1,85 @@
-import { Scene } from "./Scene";
+import Scene from "./Scene";
 import sceneRenderer from "./SceneRenderer";
 
+// HTML bindings
+const main = document.querySelector("main") as HTMLElement;
+const css = document.getElementById("dynamic-css") as HTMLLinkElement;
+
+// Local scope top layer
 let isLoading = false;
 
-class SceneManager {
+type SceneManager = {
+	scenes: Scene[],
+	currentScene: Scene | null,
 
-	private _scenes: Scene[] = []; 
-	private _currentScene: Scene | null = null;
-	private _cssElement: HTMLLinkElement = document.getElementById("dynamic-css") as HTMLLinkElement;
-	private _main: HTMLElement = document.querySelector("main") as HTMLElement;
+	initializeScenes: (scenes:Scene[]) => void,
+	getScene: (name:string) => Scene | null,
+	changeScene: (newScene: Scene) => boolean,
+}
 
-	constructor() {
-	};
+const sceneManager:SceneManager = {
 
-	getScene(name: string): Scene | null {
-		return this._scenes.find((scene) => scene.toInfo().name.toLowerCase() === name.toLowerCase()) || null;
-	}
+	scenes: [] as Scene[],
+	currentScene: null,
 
-	changeScene = (newScene: Scene) => {
-		
-		if(isLoading)
-		{
-			console.log("Action stopped, page is still loading!");
-			return;
-		}
-		isLoading = true;
-
-		if(this._currentScene != null)
-		{
-			this._currentScene.exit();
-			this._currentScene.toInfo().buttonElement.id = "";
-		}
-
-		this._currentScene = newScene;
-
-		this._main.innerHTML = "";
-
-		enterScene(this._currentScene);
-
-		this._currentScene.toInfo().buttonElement.id = "selected-button";
-		this._cssElement.href = this._currentScene.toInfo().cssPath;
-	};
-
-	initializeScenes = (scenes: Scene[]) => {
-		this._scenes = scenes;
+	initializeScenes(scenes: Scene[]): void {
 
 		scenes.forEach((scene) => {
-			const btn = sceneRenderer.createButton(scene.toInfo());
-			scene.initialize(btn);
+			const btn = sceneRenderer.createButton(scene);
+			scene.buttonElement = btn;
 
 			btn.addEventListener('click', () => {
 				this.changeScene(scene);
 			});
 		});
 
-		if(this._scenes.length > 0)
-			this.changeScene(this._scenes[0]);
-	};
+		this.scenes = scenes;
+	},
+
+	getScene(name:string): Scene | null {
+		return this.scenes.find((s) => s.name.toLowerCase() === name.toLowerCase()) || null;
+	},
+
+	changeScene(newScene: Scene): boolean {
+
+		const oldScene = this.currentScene as Scene;
+
+		if(isLoading)
+		{
+			console.log("Action denied, page is loading!");
+			return false;
+		}
+
+		isLoading = true;
+		if(this.currentScene != null)
+		{
+			oldScene.exit?.();
+			if(oldScene.buttonElement)
+				oldScene.buttonElement.id = "";
+		}
+
+		this.currentScene = newScene;
+		main.innerHTML = "";
+
+		enterScene(newScene);
+		if(newScene.buttonElement == null)
+			console.log(`Error: Button element missing from ${newScene}`);
+		else
+			newScene.buttonElement.id = "selected-button";
+
+		css.href = newScene.cssPath;
+		return true;
+	},
+
 };
 
-// TODO: Make sure that the site cannot change before all async has been done - fr fr
-async function enterScene(currentScene: Scene) {
-    const resp = await fetch(currentScene.toInfo().htmlPath);
+async function enterScene(newScene: Scene) {
+    const resp = await fetch(newScene.htmlPath);
     const html = await resp.text();
-	isLoading = await false;
-    const main = document.querySelector("main") as HTMLElement; 
-	main.innerHTML = await html;
-	await currentScene.enter();
+
+	isLoading = false;
+	main.innerHTML = html;
+	newScene.enter();
 }
 
-export default SceneManager;
+export default sceneManager;
