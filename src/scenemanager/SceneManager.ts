@@ -73,7 +73,6 @@ const sceneManager:SceneManager = {
 		css.href = newScene.cssPath;
 		return true;
 	},
-
 };
 
 async function enterScene(newScene: Scene) {
