@@ -21,5 +21,6 @@ But... Adhere to these at least.<br/>
 * Do not make changes in other peoples scenes unless explicit permission exists.
 * Do not change the default css file (as a result of your scene) PR'ing improvements is fine.
 * Do not change the tsconfig file.
+* Do not import any extra libraries or frameworks - this is for vanilla
 
 ## 🎊 That's it! 🎊
