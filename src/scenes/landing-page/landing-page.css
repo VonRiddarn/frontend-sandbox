@@ -1,2 +1,41 @@
-main {
+:root {
+	--tile-bg: #3884b1;
+	--tile-bg-pressed: #1d6894;
+}
+
+#ttt-board {
+	display: grid;
+	grid-template-columns: 64px 64px 64px;
+	gap: 3px;
+}
+
+#ttt-board div {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 64;
+	height: 64px;
+	
+	text-align: center;
+	font-size: 42px;
+	font-weight: 900;
+}
+
+#ttt-board div:not(.pressed) {
+	background-color: var(--tile-bg);
+	cursor: pointer;
+}
+
+.pressed {
+	background-color: var(--tile-bg-pressed);
+}
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
 }
