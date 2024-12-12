@@ -1,13 +1,13 @@
-import { SceneInfo } from "./Scene";
+import Scene from "./Scene";
 
-const asideEl = document.querySelector("aside") as HTMLElement;
+const aside = document.querySelector("aside") as HTMLElement;
 
 const sceneRenderer = Object.freeze({
 
-	createButton: (sceneInfo: SceneInfo) => {
-		let el = asideEl.appendChild(document.createElement("button"));
-		el.innerHTML = `${sceneInfo.name}`;
-		el.appendChild(document.createElement("p")).innerHTML = sceneInfo.author;
+	createButton: (scene: Scene) => {
+		let el = aside.appendChild(document.createElement("button"));
+		el.innerHTML = `${scene.name}`;
+		el.appendChild(document.createElement("p")).innerHTML = scene.author;
 
 		return el;
 	},
