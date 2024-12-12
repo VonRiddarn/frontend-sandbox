@@ -18,9 +18,6 @@ class SceneManager {
 	}
 
 	changeScene = (newScene: Scene) => {
-
-		if(newScene === this._currentScene)
-			return;
 		
 		if(isLoading)
 		{
