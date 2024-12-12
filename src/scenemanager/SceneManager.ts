@@ -62,7 +62,7 @@ const sceneManager:SceneManager = {
 		}
 
 		this.currentScene = newScene;
-		main.innerHTML = "";
+		main.innerHTML = `Loading scene ${newScene.name} by ${newScene.author}`;
 
 		enterScene(newScene);
 		if(newScene.buttonElement == null)
