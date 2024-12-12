@@ -1,15 +1,37 @@
 :root {
 	--grid-color: orange;
+	--mark-color: #ffd17c;
 }
 
 main {
-	background-color: #424242;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+
+	padding-top: 2rem;
+}
+
+main h2 {
+	font-size: 42px;
+}
+
+main button {
+	position: relative;
+	left: -23px;
+	background-color: #b1b1b1;
+	margin-top: 2rem;
+	width: 128px;
+	height: 32px;
+	font-size: larger;
 }
 
 #ttt-board {
 	display: flex;
 	flex-wrap: wrap;
-	margin-top: 2rem;
+	color: var(--mark-color);
+
+	margin-top: 5rem;
 	width: 500px;
 }
 
@@ -43,15 +65,15 @@ main {
 .mark-x:hover:empty::after {
 	content: "X";
 	opacity: 0.5;
-	color: var(--grid-color);
+	color: var(--mark-color);
 }
 
 .mark-o:hover:empty::after {
 	content: "O";
 	opacity: 0.5;
-	color: var(--grid-color);
+	color: var(--mark-color);
 }
 
 .win-tile {
-	background-color: green;
+	background-color: rgba(0, 255, 0, 0.336);
 }

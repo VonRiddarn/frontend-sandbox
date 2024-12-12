@@ -19,6 +19,7 @@ const landingPageScene: Scene = {
 		board = document.getElementById("ttt-board") as HTMLElement;
 		tiles = Array.from(board.children || []) as HTMLElement[];
 		initializeBoard();
+		resetBoard();
 		let reset = main.appendChild(document.createElement("button"));
 		reset.innerHTML = "RESET";
 		reset.addEventListener('click', () => {
