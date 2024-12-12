@@ -19,7 +19,7 @@ But... Adhere to these at least.<br/>
 * Do not create scenes outside of the dedicated "src/scenes" folder.
 * Do not override anything other than main in your scenes custom css.
 * Do not make changes in other peoples scenes unless explicit permission exists.
-* Do not change the default css file.
+* Do not change the default css file (as a result of your scene) PR'ing improvements is fine.
 * Do not change the tsconfig file.
 
 ## 🎊 That's it! 🎊
