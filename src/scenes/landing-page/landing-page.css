@@ -1,6 +1,5 @@
 :root {
-	--tile-bg: #3884b1;
-	--tile-bg-pressed: #1d6894;
+	--grid-color: orange;
 }
 
 main {
@@ -8,28 +7,51 @@ main {
 }
 
 #ttt-board {
-	display: grid;
-	grid-template-columns: 64px 64px 64px;
-	gap: 3px;
-}
-
-#ttt-board div {
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	width: 64;
-	height: 64px;
-	
-	text-align: center;
-	font-size: 42px;
-	font-weight: 900;
+	flex-wrap: wrap;
+	margin-top: 2rem;
+	width: 500px;
 }
 
-#ttt-board div:not(.pressed) {
-	background-color: var(--tile-bg);
+.tile{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	height: 150px;
+	width: 150px;
+
+	font-size: 120px;
+
+	border-right: 2px solid;
+	border-bottom: 2px solid;
+	border-color: var(--grid-color);
+}
+
+.tile:nth-child(3n) {
+	border-right: none;
+}
+
+.tile:nth-child(6) ~ .tile {
+	border-bottom: none;
+}
+
+.active-board div:empty {
 	cursor: pointer;
 }
 
-.pressed {
-	background-color: var(--tile-bg-pressed);
+.mark-x:hover:empty::after {
+	content: "X";
+	opacity: 0.5;
+	color: var(--grid-color);
+}
+
+.mark-o:hover:empty::after {
+	content: "O";
+	opacity: 0.5;
+	color: var(--grid-color);
+}
+
+.win-tile {
+	background-color: green;
 }
