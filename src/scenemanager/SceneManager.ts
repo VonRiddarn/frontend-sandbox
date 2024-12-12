@@ -34,6 +34,9 @@ const sceneManager:SceneManager = {
 		});
 
 		this.scenes = scenes;
+
+		if(scenes.length > 0)
+			this.changeScene(scenes[0]);
 	},
 
 	getScene(name:string): Scene | null {
