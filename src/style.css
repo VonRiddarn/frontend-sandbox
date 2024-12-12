@@ -2,6 +2,27 @@
 Pointer info: https://developer.mozilla.org/en-US/docs/Web/CSS/cursor
 */
 
+/* 
+Generic classes that is of use for all project types.
+When making a new one, make sure it adheres to these 3 pointers
+	* very generic and somewhat default usecase
+	* lowercase
+	* g- prefix
+
+This is to not clutter the global space, keep up good standards and not cause conflicts.
+*/
+
+.g-unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+/* Css for the main page */
 :root {
 	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 	line-height: 1.5;
