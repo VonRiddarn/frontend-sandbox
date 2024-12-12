@@ -1,8 +1,8 @@
-import LandingPage from "../scenes/landing-page/landing-page";
-import { Scene } from "./Scene";
+import landingPageScene from "../scenes/landing-page/landing-page";
+import Scene from "./Scene";
 
 const sceneRepository: Scene[] = [
-	new LandingPage("Landing Page", "Timmy Ö", "landing-page"),
+	landingPageScene
 ] as const;
 
 export default sceneRepository;

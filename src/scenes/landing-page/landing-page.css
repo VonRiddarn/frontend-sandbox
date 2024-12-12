@@ -3,6 +3,10 @@
 	--tile-bg-pressed: #1d6894;
 }
 
+main {
+	background-color: #424242;
+}
+
 #ttt-board {
 	display: grid;
 	grid-template-columns: 64px 64px 64px;
