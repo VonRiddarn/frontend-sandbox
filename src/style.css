@@ -25,7 +25,7 @@ This is to not clutter the global space, keep up good standards and not cause co
 .g-separator {
 	background-color: white;
 	
-	height: 1px;
+	height: 2px;
 	width: 75%;
 
 	margin: 1rem auto;
