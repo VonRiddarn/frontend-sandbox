@@ -61,6 +61,12 @@ const sceneManager:SceneManager = {
 				oldScene.buttonElement.id = "";
 		}
 
+		// TODO: 
+		// Separate the UI calls like main.innerhtml into the sceneRenderer instead
+		// Then we could do something like "sceneRenderer.RenderScene(Scene, Callback)"
+		// This way, the scenerenderer will render the scene, and when it's done, it'll call something like the enter method from here.
+		// More thought is required!
+
 		this.currentScene = newScene;
 		main.innerHTML = `Loading scene ${newScene.name} by ${newScene.author}`;
 
