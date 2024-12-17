@@ -22,6 +22,15 @@ This is to not clutter the global space, keep up good standards and not cause co
     user-select: none;
 }
 
+.g-separator {
+	background-color: white;
+	
+	height: 1px;
+	width: 75%;
+
+	margin: 1rem auto;
+}
+
 /* Css for the main page */
 :root {
 	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
